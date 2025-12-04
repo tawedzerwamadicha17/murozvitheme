@@ -1,0 +1,186 @@
+// Murozvi Theme JavaScript
+frappe.ready(function() {
+    console.log('🎨 Murozvi Corporate Theme Loaded');
+    
+    // Initialize theme functionality
+    initMurozviTheme();
+    
+    function initMurozviTheme() {
+        setBrandFavicon();
+        enhanceUIElements();
+        setupBrandAnimations();
+        enhanceNavigation();
+    }
+    
+    function setBrandFavicon() {
+        // Remove existing favicons
+        const existingFavicons = document.querySelectorAll('link[rel*="icon"]');
+        existingFavicons.forEach(favicon => favicon.remove());
+        
+        // Add Murozvi favicon
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.type = 'image/x-icon';
+        favicon.href = '/assets/murozvi_theme/images/favicon.ico';
+        document.head.appendChild(favicon);
+        
+        // Add Apple touch icon
+        const appleTouchIcon = document.createElement('link');
+        appleTouchIcon.rel = 'apple-touch-icon';
+        appleTouchIcon.href = '/assets/murozvi_theme/images/logo-192.png';
+        document.head.appendChild(appleTouchIcon);
+    }
+    
+    function enhanceUIElements() {
+        // Add smooth transitions to interactive elements
+        const interactiveElements = document.querySelectorAll(
+            '.btn, .card, .widget, .sidebar-item, .nav-item, .form-control'
+        );
+        
+        interactiveElements.forEach(element => {
+            element.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+        
+        // Enhance data tables
+        const tables = document.querySelectorAll('.datatable');
+        tables.forEach(table => {
+            table.classList.add('murozvi-table');
+        });
+        
+        // Add loading state to buttons
+        const buttons = document.querySelectorAll('.btn-primary');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.classList.contains('disabled')) {
+                    this.style.opacity = '0.8';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 1000);
+                }
+            });
+        });
+    }
+    
+    function setupBrandAnimations() {
+        // Add CSS animations for brand elements
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes murozviPulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+                }
+                70% {
+                    box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+                }
+                100% {
+                    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+                }
+            }
+            
+            .murozvi-pulse {
+                animation: murozviPulse 2s infinite;
+            }
+            
+            @keyframes slideInUp {
+                from {
+                    transform: translateY(20px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            .murozvi-slide-in {
+                animation: slideInUp 0.5s ease-out;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    function enhanceNavigation() {
+        // Add active state enhancements
+        const navItems = document.querySelectorAll('.sidebar-item, .nav > li > a');
+        
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateX(5px)';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateX(0)';
+                }
+            });
+        });
+        
+        // Enhance navbar brand
+        const navbarBrand = document.querySelector('.navbar-brand img');
+        if (navbarBrand) {
+            navbarBrand.style.transition = 'transform 0.3s ease';
+            navbarBrand.addEventListener('mouseenter', () => {
+                navbarBrand.style.transform = 'scale(1.1) rotate(-2deg)';
+            });
+            navbarBrand.addEventListener('mouseleave', () => {
+                navbarBrand.style.transform = 'scale(1) rotate(0)';
+            });
+        }
+    }
+    
+    // Custom alert styling
+    const originalShowAlert = frappe.show_alert;
+    frappe.show_alert = function(message, indicator = 'blue', seconds = 3) {
+        // Create branded alert
+        const alert = document.createElement('div');
+        alert.className = `alert alert-${indicator} murozvi-alert`;
+        alert.innerHTML = message;
+        alert.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            border-radius: var(--murozvi-border-radius);
+            border: none;
+            box-shadow: var(--murozvi-shadow-lg);
+            animation: slideInUp 0.3s ease;
+            background: ${indicator === 'red' ? 'var(--murozvi-secondary)' : 
+                        indicator === 'blue' ? 'var(--murozvi-primary)' : 
+                        indicator === 'green' ? '#16a34a' : '#ea580c'};
+            color: white;
+            padding: 12px 20px;
+            min-width: 300px;
+            font-weight: 500;
+        `;
+        
+        document.body.appendChild(alert);
+        
+        setTimeout(() => {
+            if (alert.parentElement) {
+                alert.style.animation = 'slideInUp 0.3s ease reverse';
+                setTimeout(() => alert.remove(), 300);
+            }
+        }, seconds * 1000);
+    };
+});
+
+// Add to boot info
+frappe.boot = {
+    ...frappe.boot,
+    murozvi_theme: {
+        version: "1.0.0",
+        features: {
+            corporate_branding: true,
+            custom_typography: true,
+            enhanced_ui: true,
+            branded_login: true
+        },
+        config: {
+            primary_color: "#1e3a8a",
+            secondary_color: "#dc2626",
+            font_family: "'Inter', sans-serif"
+        }
+    }
+};

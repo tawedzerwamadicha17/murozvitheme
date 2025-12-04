@@ -1,0 +1,157 @@
+/* Murozvi Login Page - Branded Splash */
+.login-container {
+    background: linear-gradient(135deg, var(--murozvi-primary) 0%, var(--murozvi-primary-dark) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--murozvi-font-primary);
+    padding: 20px;
+}
+
+.login-content {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: var(--murozvi-shadow-lg);
+    overflow: hidden;
+    max-width: 440px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.login-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.login-header {
+    background: linear-gradient(135deg, var(--murozvi-primary) 0%, var(--murozvi-primary-light) 100%);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.login-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--murozvi-secondary) 0%, var(--murozvi-secondary-light) 100%);
+}
+
+.login-header img {
+    height: 60px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.login-header:hover img {
+    transform: scale(1.05);
+}
+
+.login-header h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    font-family: var(--murozvi-font-primary);
+}
+
+.login-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.login-body {
+    padding: 2.5rem 2rem;
+}
+
+.login-footer {
+    background-color: var(--murozvi-bg-secondary);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: var(--murozvi-text-secondary);
+    font-size: 14px;
+    border-top: 1px solid var(--murozvi-border-light);
+}
+
+.page-card {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    margin: 0;
+}
+
+.form-control {
+    border: 2px solid var(--murozvi-border-light);
+    border-radius: var(--murozvi-border-radius);
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    background-color: #ffffff;
+}
+
+.form-control:focus {
+    border-color: var(--murozvi-secondary);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    background-color: #ffffff;
+}
+
+.btn-login {
+    background: linear-gradient(135deg, var(--murozvi-secondary) 0%, var(--murozvi-secondary-dark) 100%);
+    border: none;
+    border-radius: var(--murozvi-border-radius);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 14px 24px;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    box-shadow: var(--murozvi-shadow-sm);
+}
+
+.btn-login:hover {
+    background: linear-gradient(135deg, var(--murozvi-secondary-light) 0%, var(--murozvi-secondary) 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--murozvi-shadow-lg);
+    color: #ffffff;
+}
+
+.forgot-btn {
+    color: var(--murozvi-text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+.forgot-btn:hover {
+    color: var(--murozvi-secondary);
+}
+
+/* Login page specific adjustments */
+.ellipsis {
+    overflow: hidden;
+}
+
+.login-image {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .login-content {
+        margin: 20px;
+        max-width: none;
+    }
+    
+    .login-header {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    .login-body {
+        padding: 2rem 1.5rem;
+    }
+}

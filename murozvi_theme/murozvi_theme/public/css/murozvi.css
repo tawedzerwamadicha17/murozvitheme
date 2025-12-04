@@ -1,0 +1,441 @@
+/* Murozvi Theme - Corporate Branding */
+:root {
+    /* Primary Brand Color - Header/Sidebar */
+    --murozvi-primary: #1e3a8a;
+    --murozvi-primary-dark: #1e40af;
+    --murozvi-primary-light: #3b82f6;
+    
+    /* Secondary Brand Color - Action Buttons */
+    --murozvi-secondary: #dc2626;
+    --murozvi-secondary-dark: #b91c1c;
+    --murozvi-secondary-light: #ef4444;
+    
+    /* Neutral Background Colors */
+    --murozvi-bg-primary: #f8fafc;
+    --murozvi-bg-secondary: #f1f5f9;
+    --murozvi-bg-warm: #fef7ed;
+    
+    /* Text Colors */
+    --murozvi-text-primary: #1e293b;
+    --murozvi-text-secondary: #64748b;
+    --murozvi-text-light: #94a3b8;
+    
+    /* Border Colors */
+    --murozvi-border-light: #e2e8f0;
+    --murozvi-border-medium: #cbd5e1;
+    
+    /* Typography */
+    --murozvi-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --murozvi-font-secondary: 'Georgia', serif;
+    
+    /* UI Elements */
+    --murozvi-border-radius: 8px;
+    --murozvi-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --murozvi-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --murozvi-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Import Corporate Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ========== BASE RESET & TYPOGRAPHY ========== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--murozvi-font-primary);
+    background-color: var(--murozvi-bg-primary);
+    color: var(--murozvi-text-primary);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+/* ========== HEADER - PRIMARY BRAND COLOR ========== */
+.navbar {
+    background: linear-gradient(135deg, var(--murozvi-primary) 0%, var(--murozvi-primary-dark) 100%) !important;
+    border: none !important;
+    box-shadow: var(--murozvi-shadow-md);
+    padding: 0.75rem 1rem;
+    min-height: 70px;
+    transition: all 0.3s ease;
+}
+
+.navbar .navbar-brand {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.navbar .navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+/* Navigation Items */
+.navbar .nav > li > a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    padding: 1rem 1.25rem !important;
+    transition: all 0.3s ease;
+    border-radius: var(--murozvi-border-radius);
+    margin: 0 4px;
+    font-size: 14px;
+}
+
+.navbar .nav > li > a:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-1px);
+}
+
+.navbar .nav > li.active > a {
+    background: linear-gradient(135deg, var(--murozvi-secondary) 0%, var(--murozvi-secondary-dark) 100%) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: var(--murozvi-shadow-sm);
+}
+
+/* ========== SIDEBAR - PRIMARY BRAND COLOR ========== */
+.layout-side-section {
+    background: linear-gradient(180deg, var(--murozvi-primary) 0%, var(--murozvi-primary-dark) 100%);
+    border-right: none;
+    box-shadow: var(--murozvi-shadow-md);
+    padding-top: 1rem;
+}
+
+.sidebar-item {
+    color: rgba(255, 255, 255, 0.85) !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    margin: 4px 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    border-radius: var(--murozvi-border-radius);
+    font-size: 14px;
+}
+
+.sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    transform: translateX(8px);
+    box-shadow: var(--murozvi-shadow-sm);
+}
+
+.sidebar-item.active {
+    background: linear-gradient(135deg, var(--murozvi-secondary) 0%, var(--murozvi-secondary-dark) 100%) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: var(--murozvi-shadow-md);
+    transform: translateX(4px);
+}
+
+/* ========== BUTTONS - SECONDARY BRAND COLOR ========== */
+.btn-primary {
+    background: linear-gradient(135deg, var(--murozvi-secondary) 0%, var(--murozvi-secondary-dark) 100%);
+    border: none;
+    border-radius: var(--murozvi-border-radius);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    box-shadow: var(--murozvi-shadow-sm);
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background: linear-gradient(135deg, var(--murozvi-secondary-light) 0%, var(--murozvi-secondary) 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--murozvi-shadow-lg);
+    color: #ffffff;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--murozvi-primary);
+    color: var(--murozvi-primary);
+    border-radius: var(--murozvi-border-radius);
+    font-weight: 600;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--murozvi-primary);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: var(--murozvi-shadow-md);
+}
+
+/* ========== CARDS & WIDGETS ========== */
+.card, .widget {
+    background: #ffffff;
+    border: 1px solid var(--murozvi-border-light);
+    border-radius: var(--murozvi-border-radius);
+    box-shadow: var(--murozvi-shadow-sm);
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.card:hover, .widget:hover {
+    box-shadow: var(--murozvi-shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--murozvi-primary-light);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--murozvi-primary) 0%, var(--murozvi-primary-light) 100%);
+    color: white;
+    border-radius: var(--murozvi-border-radius) var(--murozvi-border-radius) 0 0 !important;
+    border: none;
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.1em;
+}
+
+/* ========== FORMS ========== */
+.form-control {
+    border: 2px solid var(--murozvi-border-light);
+    border-radius: var(--murozvi-border-radius);
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+    font-family: var(--murozvi-font-primary);
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+.form-control:focus {
+    border-color: var(--murozvi-secondary);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    outline: none;
+    background-color: #ffffff;
+}
+
+.control-label {
+    color: var(--murozvi-text-primary);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-family: var(--murozvi-font-primary);
+}
+
+/* ========== DATA TABLES ========== */
+.datatable {
+    border-radius: var(--murozvi-border-radius);
+    overflow: hidden;
+    box-shadow: var(--murozvi-shadow-sm);
+    border: 1px solid var(--murozvi-border-light);
+    background: #ffffff;
+}
+
+.datatable .table thead th {
+    background: linear-gradient(135deg, var(--murozvi-primary) 0%, var(--murozvi-primary-light) 100%);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 14px 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.datatable .table tbody tr {
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--murozvi-border-light);
+}
+
+.datatable .table tbody tr:hover {
+    background-color: rgba(30, 58, 138, 0.04);
+}
+
+.datatable .table tbody td {
+    padding: 12px 16px;
+    border-color: var(--murozvi-border-light);
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+/* ========== PROGRESS BARS - BRAND COLORS ========== */
+.progress {
+    background-color: var(--murozvi-border-light);
+    border-radius: 10px;
+    height: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--murozvi-secondary) 0%, var(--murozvi-secondary-light) 100%);
+    border-radius: 10px;
+    transition: width 0.6s ease;
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+}
+
+/* ========== STATUS INDICATORS ========== */
+.indicator {
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+}
+
+.indicator-blue {
+    background-color: rgba(30, 58, 138, 0.1);
+    color: var(--murozvi-primary);
+    border-color: rgba(30, 58, 138, 0.2);
+}
+
+.indicator-green {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+    border-color: rgba(34, 197, 94, 0.2);
+}
+
+.indicator-red {
+    background-color: rgba(220, 38, 38, 0.1);
+    color: var(--murozvi-secondary);
+    border-color: rgba(220, 38, 38, 0.2);
+}
+
+.indicator-orange {
+    background-color: rgba(249, 115, 22, 0.1);
+    color: #ea580c;
+    border-color: rgba(249, 115, 22, 0.2);
+}
+
+/* ========== DASHBOARD ========== */
+.dashboard {
+    background-color: var(--murozvi-bg-primary);
+    padding: 24px;
+    min-height: calc(100vh - 70px);
+}
+
+.dashboard-widget-box {
+    background: #ffffff;
+    border: 1px solid var(--murozvi-border-light);
+    border-radius: var(--murozvi-border-radius);
+    box-shadow: var(--murozvi-shadow-sm);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.dashboard-widget-box:hover {
+    box-shadow: var(--murozvi-shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--murozvi-primary-light);
+}
+
+/* ========== MODALS & DIALOGS ========== */
+.modal-content {
+    border: none;
+    border-radius: var(--murozvi-border-radius);
+    box-shadow: var(--murozvi-shadow-lg);
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--murozvi-primary) 0%, var(--murozvi-primary-light) 100%);
+    color: white;
+    border-radius: var(--murozvi-border-radius) var(--murozvi-border-radius) 0 0;
+    border: none;
+    padding: 1.5rem 2rem;
+}
+
+.modal-title {
+    font-weight: 600;
+    font-family: var(--murozvi-font-primary);
+    font-size: 1.25em;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: linear-gradient(135deg, var(--murozvi-primary) 0%, var(--murozvi-primary-dark) 100%) !important;
+    color: rgba(255, 255, 255, 0.8);
+    border-top: 3px solid var(--murozvi-secondary);
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    font-size: 14px;
+}
+
+/* ========== CUSTOM BRAND ELEMENTS ========== */
+.murozvi-brand-text {
+    font-family: var(--murozvi-font-secondary);
+    font-weight: 600;
+    color: var(--murozvi-primary);
+    font-style: italic;
+}
+
+.murozvi-accent-border {
+    border-left: 4px solid var(--murozvi-secondary) !important;
+}
+
+.murozvi-gradient-bg {
+    background: linear-gradient(135deg, var(--murozvi-primary) 0%, var(--murozvi-secondary) 100%);
+}
+
+/* ========== ACTIVE STATES & SELECTION ========== */
+.navbar .nav > li.active > a,
+.sidebar-item.active,
+.btn-primary {
+    position: relative;
+}
+
+.navbar .nav > li.active > a::after,
+.sidebar-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    .navbar .navbar-brand img {
+        height: 32px;
+    }
+    
+    .navbar .nav > li > a {
+        padding: 0.75rem 1rem !important;
+        font-size: 13px;
+    }
+    
+    .sidebar-item {
+        padding: 10px 16px !important;
+        font-size: 13px;
+    }
+    
+    :root {
+        --murozvi-border-radius: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard {
+        padding: 16px;
+    }
+    
+    .card-header {
+        padding: 1rem 1.25rem;
+    }
+}
